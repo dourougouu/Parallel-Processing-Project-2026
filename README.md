@@ -1,6 +1,6 @@
 # Parallel-Processing-Project-2026
 ----
-##Parallel Data Preprocessing Scaler
+Parallel Data Preprocessing Scaler
 Implementation of a high-performance preprocessing system for large-scale numerical datasets using:
 
 - Serial baseline
