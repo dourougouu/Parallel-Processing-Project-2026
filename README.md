@@ -60,5 +60,5 @@ report/     Final report
 
 ---
 
-👥 Authors
+# 👥 Authors
 - Μαρία Δρούγκα
