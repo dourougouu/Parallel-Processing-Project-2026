@@ -1,0 +1,13 @@
+*.bin
+*.o
+*.out
+*.exe
+*.log
+
+build/
+results/
+data/
+venv/
+
+.vscode/
+.idea/
