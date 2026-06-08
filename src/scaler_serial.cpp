@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cmath>
 #include <cfloat>
+#include <chrono>
 
 int main(int argc, char *argv[])
 {
@@ -58,6 +59,8 @@ int main(int argc, char *argv[])
     // 3.1                1st PASS: ΥΠΟΛΟΓΙΣΜΟΣ ΣΤΑΤΙΣΤΙΚΩΝ
     //================================================================================
     //================================================================================
+    auto start_time = std::chrono::high_resolution_clock::now(); // Ξεκινάω το χρονόμετρο
+
     size_t total_rows_processed = 0;
 
     while (total_rows_processed < N)
@@ -152,7 +155,7 @@ int main(int argc, char *argv[])
 
                 if (mode == "standard")
                 {
-                    if (stddev[j] > 0.0)
+                    if (stddev[j] > 1e-12) // Χρησιμοποιώ ένα μικρό threshold αντί για 0 για να αποφύγω προβλήματα με πολύ μικρά εύρη λόγω floating-point σφάλματος
                     {
                         x = (x - mean[j]) / stddev[j];
                     }
@@ -165,7 +168,7 @@ int main(int argc, char *argv[])
                 else if (mode == "minmax")
                 {
                     // note:  αν max_j = min_j, να αποφύγω διαίρεση με μηδέν
-                    if (range[j] > 0.0)
+                    if (range[j] > 1e-12) // Χρησιμοποιώ ένα μικρό threshold αντί για 0 για να αποφύγω προβλήματα με πολύ μικρά εύρη λόγω floating-point σφάλματος
                     {
                         x = (x - min_value[j]) / range[j];
                     }
@@ -186,7 +189,12 @@ int main(int argc, char *argv[])
     fin.close();
     fout.close();
 
-    std::cout << "Scaling completed successfully\n";
+    auto end = std::chrono::high_resolution_clock::now(); // Σταματάω το χρονόμετρο
+
+    double elapsed_seconds = std::chrono::duration<double>(end - start_time).count(); // Υπολογίζω τον χρόνο εκτέλεσης σε δευτερόλεπτα
+
+    std::cout << "Scaling completed successfully!\n";
+    std::cout << "Total execution time (1st + 2nd Pass): " << elapsed_seconds << " secs\n";
 
     return 0;
 }
@@ -194,6 +202,8 @@ int main(int argc, char *argv[])
 // How to Compile and Run:
 //  g++ -O3 -march=native -ffast-math -o src/scaler_serial.cpp or make serial
 //  ./src/scaler_serial data/test.bin out.bin 1000 8 standard
-//  python scripts/validate.py
+//  python3 scripts/validate.py
 //  ./scaler_serial data/test.bin out.bin 1000 8 minmax
-//  python scripts/validate.py
+//  python3 scripts/validate.py
+// test.bin   ← το παλιό (1000 samples, 8 features)
+// small.bin  ← το νέο (1000000 samples, 32 features)
