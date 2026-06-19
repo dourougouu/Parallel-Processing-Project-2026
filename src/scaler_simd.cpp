@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 
                 // Άθροισμα τετραγώνων
                 __m256d square = _mm256_mul_pd(x, x); // Πολλαπλασιάζω το vector x με τον εαυτό του για να πάρω τα τετράγωνα των στοιχείων
-                __m256d sum_squares_vector = _mm256_load_pd(&sum_squares[j]);
+                __m256d sum_squares_vector = _mm256_loadu_pd(&sum_squares[j]);
                 sum_squares_vector = _mm256_add_pd(sum_squares_vector, square); // Προσθέτω τα στοιχεία του vector square στο αντίστοιχο vector sum_squares_vector που περιέχει τα partial sums των τετραγώνων για κάθε feature
                 _mm256_storeu_pd(&sum_squares[j], sum_squares_vector);          // Αποθηκεύω το ενημερωμένο vector sum_squares_vector πίσω στον πίνακα sum_squares
 

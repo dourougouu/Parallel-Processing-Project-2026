@@ -201,7 +201,7 @@ int main(int argc, char *argv[])
 
 // How to Compile and Run:
 //  g++ -O3 -march=native -ffast-math -o src/scaler_serial.cpp or make serial
-//  ./src/scaler_serial data/test.bin out.bin 1000 8 standard
+//  ./scaler_serial data/test.bin out.bin 1000 8 standard
 //  python3 scripts/validate.py
 //  ./scaler_serial data/test.bin out.bin 1000 8 minmax
 //  python3 scripts/validate.py
