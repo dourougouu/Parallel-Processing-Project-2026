@@ -198,12 +198,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
-// How to Compile and Run:
-//  g++ -O3 -march=native -ffast-math -o src/scaler_serial.cpp or make serial
-//  ./scaler_serial data/test.bin out.bin 1000 8 standard
-//  python3 scripts/validate.py
-//  ./scaler_serial data/test.bin out.bin 1000 8 minmax
-//  python3 scripts/validate.py
-// test.bin   ← το παλιό (1000 samples, 8 features)
-// small.bin  ← το νέο (1000000 samples, 32 features)
