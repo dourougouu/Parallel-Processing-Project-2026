@@ -377,9 +377,3 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// How to Compile and Run:
-//  nvcc -O3 -std=c++17 src/scaler_cuda.cu -o scaler_cuda or make cuda
-//  ./scaler_scuda data/test.bin out.bin 1000 8 standard
-//  python3 scripts/validate.py
-//  ./scaler_cuda data/test.bin out.bin 1000 8 minmax
-//  python3 scripts/validate.py
