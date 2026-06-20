@@ -129,10 +129,6 @@ Verified to compile and run on the `krylov100` lab cluster.
 - GCC / G++ v11+ with AVX2 support
 - NVCC (CUDA Toolkit 11+)
 
-**Parallel Frameworks**
-
-- OpenMP API
-- OpenMPI Suite
 
 **Python Environment**
 
