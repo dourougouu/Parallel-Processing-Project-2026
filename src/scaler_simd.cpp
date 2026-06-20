@@ -276,10 +276,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
-// How to Compile and Run:
-//  g++ -O3 -march=native -mavx2 -ffast-math -std=c++17 src/scaler_simd.cpp -o scaler_simd or make simd
-//  ./scaler_simd data/test.bin out.bin 1000 8 standard
-//  python3 scripts/validate.py
-//  ./scaler_simd data/test.bin out.bin 1000 8 minmax
-//  python3 scripts/validate.py
