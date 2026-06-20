@@ -59,7 +59,7 @@ python3 scripts/generate_data.py --samples 1000000 --features 32 --output data/s
 ```bash
 python3 scripts/generate_data.py --samples 5000000 --features 64 --output data/medium.bin --dtype float64
 ```
-
+---
 
 ## Running Benchmarks
 
