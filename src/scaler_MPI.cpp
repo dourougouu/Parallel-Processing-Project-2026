@@ -265,13 +265,3 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// How to Compile and Run:
-//  mpicxx -O3 -march=native -ffast-math -std=c++17 src/scaler_MPI.cpp -o scaler_mpi or make mpi
-//  mpirun -np 1 ./scaler_mpi data/test.bin out.bin 1000 8 standard
-//  mpirun -np 2 ./scaler_mpi data/test.bin out.bin 1000 8 standard
-//  mpirun -np 4 ./scaler_mpi data/test.bin out.bin 1000 8 standard
-//  python3 scripts/validate.py
-//  mpirun -np 1 ./scaler_mpi data/test.bin out.bin 1000 8 minmax
-//  mpirun -np 2 ./scaler_mpi data/test.bin out.bin 1000 8 minmax
-//  mpirun -np 4 ./scaler_mpi data/test.bin out.bin 1000 8 minmax
-//  python3 scripts/validate.py
