@@ -235,9 +235,3 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// How to Compile and Run:
-//  g++ -O3 -march=native -ffast-math -fopenmp -o src/scaler_OpenMP.cpp or make openmp
-//  ./scaler_OpenMP data/test.bin out.bin 1000 8 standard
-//  python3 scripts/validate.py
-//  ./scaler_OpenMP data/test.bin out.bin 1000 8 minmax
-//  python3 scripts/validate.py
