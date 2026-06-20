@@ -9,7 +9,7 @@ High-performance feature scaling for large numerical datasets — benchmarking f
 
 ## Overview
 
-This project implements and compares five parallel programming models for accelerating `StandardScaler` and `MinMaxScaler` operations on large datasets. Each implementation targets a different hardware or software layer, from CPU vectorization to GPU massively parallel execution.
+This project implements and compares four parallel programming models for accelerating `StandardScaler` and `MinMaxScaler` operations on large datasets. Each implementation targets a different hardware or software layer, from CPU vectorization to GPU massively parallel execution.
 
 ---
 
@@ -52,6 +52,14 @@ make clean
 ```
 
 ---
+## Create the bin files
+```bash
+python3 scripts/generate_data.py --samples 1000000 --features 32 --output data/small.bin --dtype float64
+```
+```bash
+python3 scripts/generate_data.py --samples 5000000 --features 64 --output data/medium.bin --dtype float64
+```
+
 
 ## Running Benchmarks
 
@@ -62,6 +70,15 @@ Cross-validate execution output against a reference using the Python validation 
 ```bash
 python3 scripts/validate.py data/small.bin out.bin 1000000 32 standard
 ```
+```bash
+python3 scripts/validate.py data/medium.bin out.bin 5000000 64 standard
+```
+```bash
+python3 scripts/validate.py data/small.bin out.bin 1000000 32 minmax
+```
+```bash
+python3 scripts/validate.py data/medium.bin out.bin 5000000 64 minmax
+```
 
 ### 2. Run the Full Benchmark Suite
 
@@ -69,6 +86,13 @@ Execute multiple runs across all configurations and collect statistical timing m
 
 ```bash
 ./benchmark.sh
+```
+or
+```bash
+bash scripts/benchmark.sh small both 3
+```
+```bash
+bash scripts/benchmark.sh medium  both 3
 ```
 
 ### 3. Generate Plots and Summaries
@@ -85,10 +109,11 @@ python3 scripts/plot_visuals_results.py results/benchmark_medium_20260619_183733
 ## Project Structure
 
 ```
+├── data/         # The small and medium bin files created
 ├── src/          # C++/CUDA source files (Serial, SIMD, OpenMP, MPI, CUDA)
 ├── scripts/      # Validation, parsing, and benchmarking utilities
 ├── results/      # CSV metrics, PNG charts, and evaluation summaries
-├── report/       # Final technical report
+├── gitignore
 ├── Makefile      # Build configuration
 └── README.md
 ```
