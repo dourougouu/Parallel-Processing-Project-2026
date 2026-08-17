@@ -1,0 +1,132 @@
+[Fri 19 Jun 2026 10:44:32 PM EEST] Benchmark started
+[0;32m[DATA][0m Dataset exists: 2.4G
+
+[1m  MODE: standard | Dataset: medium[0m
+
+[1/5] Serial
+    Run 1: 24.7944s
+    Run 2: 23.4842s
+    Run 3: 23.3397s
+    [0;32m→ Average: 23.8728s[0m
+
+[2/5] SIMD (AVX2)
+    Run 1: 21.2249s
+    Run 2: 22.3937s
+    Run 3: 24.1824s
+    [0;32m→ Average: 22.6003s[0m
+
+[3/5] OpenMP
+  → 1 thread(s)
+    Run 1: 25.1825s
+    Run 2: 19.9547s
+    Run 3: 20.8261s
+    [0;32m→ Average: 21.9878s[0m
+  → 2 thread(s)
+    Run 1: 18.0409s
+    Run 2: 16.72s
+    Run 3: 15.7812s
+    [0;32m→ Average: 16.8474s[0m
+  → 4 thread(s)
+    Run 1: 14.7235s
+    Run 2: 18.2749s
+    Run 3: 21.7779s
+    [0;32m→ Average: 18.2588s[0m
+  → 8 thread(s)
+    Run 1: 19.5682s
+    Run 2: 17.1858s
+    Run 3: 16.116s
+    [0;32m→ Average: 17.6233s[0m
+
+[4/5] MPI
+  → 1 process(es)
+    Run 1: 7.0035s
+    Run 2: 7.07393s
+    Run 3: 7.1224s
+    [0;32m→ Average: 7.0666s[0m
+  → 2 process(es)
+    Run 1: 3.93902s
+    Run 2: 3.98305s
+    Run 3: 3.94642s
+    [0;32m→ Average: 3.9562s[0m
+  → 4 process(es)
+    Run 1: 2.46951s
+    Run 2: 2.48298s
+    Run 3: 2.4886s
+    [0;32m→ Average: 2.4804s[0m
+  → 8 process(es)
+    Run 1: 2.59296s
+    Run 2: 2.59394s
+    Run 3: 2.59258s
+    [0;32m→ Average: 2.5932s[0m
+
+[5/5] CUDA (GPU)
+    Run 1: 16.6698s
+    Run 2: 14.3456s
+    Run 3: 14.1696s
+    [0;32m→ Average: 15.0617s[0m
+
+[1m  MODE: minmax | Dataset: medium[0m
+
+[1/5] Serial
+    Run 1: 25.8488s
+    Run 2: 28.7352s
+    Run 3: 27.7081s
+    [0;32m→ Average: 27.4307s[0m
+
+[2/5] SIMD (AVX2)
+    Run 1: 19.1404s
+    Run 2: 21.9808s
+    Run 3: 24.0035s
+    [0;32m→ Average: 21.7082s[0m
+
+[3/5] OpenMP
+  → 1 thread(s)
+    Run 1: 29.3679s
+    Run 2: 26.7932s
+    Run 3: 29.9217s
+    [0;32m→ Average: 28.6943s[0m
+  → 2 thread(s)
+    Run 1: 28.5449s
+    Run 2: 29.2735s
+    Run 3: 28.5283s
+    [0;32m→ Average: 28.7822s[0m
+  → 4 thread(s)
+    Run 1: 47.5503s
+    Run 2: 25.6783s
+    Run 3: 20.9367s
+    [0;32m→ Average: 31.3884s[0m
+  → 8 thread(s)
+    Run 1: 24.462s
+    Run 2: 23.736s
+    Run 3: 28.1853s
+    [0;32m→ Average: 25.4611s[0m
+
+[4/5] MPI
+  → 1 process(es)
+    Run 1: 10.0919s
+    Run 2: 10.2241s
+    Run 3: 10.1872s
+    [0;32m→ Average: 10.1677s[0m
+  → 2 process(es)
+    Run 1: 6.01941s
+    Run 2: 5.53558s
+    Run 3: 5.47667s
+    [0;32m→ Average: 5.6772s[0m
+  → 4 process(es)
+    Run 1: 3.07592s
+    Run 2: 3.13131s
+    Run 3: 3.13616s
+    [0;32m→ Average: 3.1145s[0m
+  → 8 process(es)
+    Run 1: 2.73852s
+    Run 2: 2.62249s
+    Run 3: 3.29971s
+    [0;32m→ Average: 2.8869s[0m
+
+[5/5] CUDA (GPU)
+    Run 1: 31.8682s
+    Run 2: 56.2935s
+    Run 3: 57.5897s
+    [0;32m→ Average: 48.5838s[0m
+
+[1m[0;32mBenchmark Complete![0m
